@@ -1,3 +1,9 @@
+/**
+ * Comments with (Corner) are for art that was placed on the corner of the
+ * canvas and are immediate duplicates to the lines prior using reference of
+ * which can be toggled into being if required as such
+ */
+
 const canvasSketch = require("canvas-sketch");
 const math = require("canvas-sketch-util/math");
 const random = require("canvas-sketch-util/random");
@@ -27,6 +33,8 @@ const sketch = () => {
     // Center of the canvas
     const cx = width * 0.5;
     const cy = height * 0.5;
+    // const cx = 0; // (Corner)
+    // const cy = height; // (Corner)
 
     // Width of clock hands
     const handWidth = width * 0.01;
@@ -35,8 +43,10 @@ const sketch = () => {
     let x, y; // Position of clock hands
 
     const numOfClockHands = 68; // Number of clock hands
+    // const numOfClockHands = 100; // (Corner) Number of clock hands
     const slice = math.degToRad(360 / numOfClockHands); // Angle for each slice of the circle
     const radius = width * 0.3; // Radius of the circle
+    // const radius = width * 0.4; // (Corner) Radius of the circle
 
     for (let i = 0; i < numOfClockHands; i++) {
       const angle = slice * i; // Angle for each clock hand incremented in slices
@@ -65,6 +75,7 @@ const sketch = () => {
       context.translate(x, y);
       context.rotate(-angle);
       context.scale(random.range(0.1, 2), random.range(0.2, 1));
+      // context.scale(random.range(0.1, 2), random.range(0.2, 5)); // (Corner)
 
       // Draw the rectangle on the rotated context
       //(simliar to drawing on a rotated paper)
@@ -92,6 +103,7 @@ const sketch = () => {
 
       // Set the line width
       context.lineWidth = random.range(5, 20);
+      // context.lineWidth = random.range(5, 40); // (Corner)
 
       // Draw the arc on the rotated context from a fraction of
       // the negative slice to the positive slice
@@ -100,6 +112,7 @@ const sketch = () => {
         0,
         0,
         radius * random.range(0.7, 1.3),
+        // radius * random.range(0.7, 2), // (Corner)
         slice * random.range(1, -12),
         slice * random.range(1, 8)
       );
