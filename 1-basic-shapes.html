@@ -84,14 +84,15 @@
          * create and relocate each rectangle with the help of
          * a gap variable, to create a grid of rectangles.
          */
+        const width = 60;
+        const height = 60;
+        const gap = 20;
+        let x, y;
         repeatedShapesContext.lineWidth = 4;
         for (let i = 0; i < 5; i++) {
             for (let j = 0; j < 5; j++) {
-                let width = 60;
-                let height = 60;
-                let gap = 20;
-                let x = 100 + (width + gap) * i;
-                let y = 100 + (height + gap) * j;
+                x = 100 + (width + gap) * i;
+                y = 100 + (height + gap) * j;
     
                 repeatedShapesContext.beginPath();
                 repeatedShapesContext.rect(x, y, width, height);
