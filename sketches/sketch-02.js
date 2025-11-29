@@ -1,5 +1,6 @@
 const canvasSketch = require('canvas-sketch');
-const { degToRad } = require('./utils');
+const math = require('canvas-sketch-util/math');
+const random = require('canvas-sketch-util/random');
 
 const settings = {
   dimensions: [ 1080, 1080 ]
@@ -23,7 +24,7 @@ const sketch = () => {
     let x, y; // Position of clock hands
 
     const numOfClockHands = 12; // Number of clock hands
-    const slice = degToRad(360/numOfClockHands); // Angle for each slice of the circle
+    const slice = math.degToRad(360/numOfClockHands); // Angle for each slice of the circle
     const radius = width * 0.3; // Radius of the circle
 
     for (let i = 0; i < numOfClockHands; i++) {
@@ -51,6 +52,7 @@ const sketch = () => {
       // Translate and rotate the context
       context.translate(x, y);
       context.rotate(-angle);
+      context.scale(random.range(1, 3), 1);
   
       // Draw the rectangle on the rotated context 
       //(simliar to drawing on a rotated paper)
