@@ -33,19 +33,21 @@ const sketch = () => {
     // Restore the context to its original state
     context.restore();
 
-    /**
-     * Because we saved and restored out context in the previous set of
-     * instructions, the sketches from her onwards will remain unaffected
-     * from the previous transformations
-     */
+    // Commented out the circle as it's no longer needed but can
+    // help out as notes for the lesson it was meant for
+    // /**
+    //  * Because we saved and restored out context in the previous set of
+    //  * instructions, the sketches from her onwards will remain unaffected
+    //  * from the previous transformations
+    //  */
 
-    // Translate the context to a new position
-    context.translate(100, 400);
+    // // Translate the context to a new position
+    // context.translate(100, 400);
 
-    // Draw a circle on the translated context
-    context.beginPath();
-    context.arc(0, 0, 50, 0, Math.PI * 2);
-    context.fill();
+    // // Draw a circle on the translated context
+    // context.beginPath();
+    // context.arc(0, 0, 50, 0, Math.PI * 2);
+    // context.fill();
   };
 };
 
