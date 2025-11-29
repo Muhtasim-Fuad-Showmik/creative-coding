@@ -34,8 +34,8 @@ const sketch = () => {
 
           context.beginPath();
           context.rect(x, y, rectWidth, rectHeight);
-          const hue = Math.floor(Math.random() * 360); // Generate hue within 0 to 360
-          const lightness = Math.floor(Math.random() * 30) + 70; // Generate lightness within 70% to 100%
+          const hue = 250; // Use purplish hue
+          const lightness = 80 - (15 * j); // Use lightness to create depth (light to dark)
           context.strokeStyle = `hsl(${hue}, 100%, ${lightness}%)`; // Generate random color
           context.stroke();
 
