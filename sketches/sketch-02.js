@@ -34,7 +34,7 @@ const sketch = () => {
 
     let x, y; // Position of clock hands
 
-    const numOfClockHands = 40; // Number of clock hands
+    const numOfClockHands = 68; // Number of clock hands
     const slice = math.degToRad(360 / numOfClockHands); // Angle for each slice of the circle
     const radius = width * 0.3; // Radius of the circle
 
