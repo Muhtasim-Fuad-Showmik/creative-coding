@@ -96,6 +96,11 @@
                 repeatedShapesContext.beginPath();
                 repeatedShapesContext.rect(x, y, width, height);
                 repeatedShapesContext.stroke();
+
+                // Create smaller rectangles inset within the larger ones
+                repeatedShapesContext.beginPath();
+                repeatedShapesContext.rect(x + 8, y + 8, width - 16, height - 16);
+                repeatedShapesContext.stroke();
             }
         }
     </script>
