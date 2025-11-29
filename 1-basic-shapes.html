@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Shapes</title>
+</head>
+<body>
+    <h1>Basic Shapes</h1>
+    <p>Basic shapes are the building blocks of a website. They are used to create the structure of a website. Let's look at the canvas below as the beginning to working with shapes</p>
+
+    <canvas width="600" height="600"></canvas>
+
+    <script>
+        // Begin by grabbing a reference to the canvas
+        // and its context in 2D
+        let canvas = document.querySelector('canvas');
+        let context = canvas.getContext('2d');
+
+        /**
+         * Create a blue-filled rectangle:
+         * 
+         * Define the style for your context first to use blue fill color.
+         * Next create a filled rectangle by using the shortcut "fillRect" method from context
+         */
+        context.fillStyle = 'blue';
+        context.fillRect(100, 100, 400, 400);
+    </script>
+</body>
+</html>
