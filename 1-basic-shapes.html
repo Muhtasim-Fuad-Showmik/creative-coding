@@ -24,15 +24,17 @@
     <h1>Basic Shapes</h1>
     <p>Basic shapes are the building blocks of a website. They are used to create the structure of a website. Let's look at the canvas below as the beginning to working with shapes</p>
 
-    <canvas width="600" height="600"></canvas>
+    <canvas id="basic-shapes" width="600" height="600"></canvas>
 
     <blockquote>To learn more about shapes and methods to create them, check out the detailed docs at <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">MDN</a></blockquote>
+    
+    <canvas id="repeated-shapes" width="600" height="600"></canvas>
 
     <script>
         // Begin by grabbing a reference to the canvas
         // and its context in 2D
-        let canvas = document.querySelector('canvas');
-        let context = canvas.getContext('2d');
+        let basicShapesCanvas = document.querySelector('#basic-shapes');
+        let basicShapesContext = basicShapesCanvas.getContext('2d');
 
         /**
          * Create a blue-filled rectangle:
@@ -40,8 +42,8 @@
          * Define the style for your context first to use blue fill color.
          * Next create a filled rectangle by using the shortcut "fillRect" method from context
          */
-        context.fillStyle = 'blue';
-        context.fillRect(100, 100, 400, 400);
+        basicShapesContext.fillStyle = 'blue';
+        basicShapesContext.fillRect(100, 100, 400, 400);
 
         /**
          * Create a outlined rectangle:
@@ -55,10 +57,10 @@
          * rectangle just like before and only apply a stroke of
          * line width 4 as defined earlier.
          */ 
-        context.lineWidth = 4;
-        context.beginPath();
-        context.rect(100, 100, 400, 400);
-        context.stroke();
+        basicShapesContext.lineWidth = 4;
+        basicShapesContext.beginPath();
+        basicShapesContext.rect(100, 100, 400, 400);
+        basicShapesContext.stroke();
 
         /**
          * Create a outlined circle:
@@ -66,9 +68,9 @@
          * We can use a full 360 degrees/2 pie arc to create a circle.
          * And then apply stroke to it to have our desired output.
          */
-        context.beginPath();
-        context.arc(300, 300, 100, 0, Math.PI * 2);
-        context.stroke();
+        basicShapesContext.beginPath();
+        basicShapesContext.arc(300, 300, 100, 0, Math.PI * 2);
+        basicShapesContext.stroke();
     </script>
 </body>
 </html>
