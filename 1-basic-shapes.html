@@ -25,7 +25,7 @@
     <p>Basic shapes are the building blocks of a website. They are used to create the structure of a website. Let's look at the canvas below as the beginning to working with shapes</p>
 
     <canvas id="basic-shapes" width="600" height="600"></canvas>
-
+    
     <blockquote>To learn more about shapes and methods to create them, check out the detailed docs at <a href="https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D">MDN</a></blockquote>
     
     <canvas id="repeated-shapes" width="600" height="600"></canvas>
@@ -71,6 +71,33 @@
         basicShapesContext.beginPath();
         basicShapesContext.arc(300, 300, 100, 0, Math.PI * 2);
         basicShapesContext.stroke();
+
+        // Begin by grabbing a reference to the next canvas
+        // and its context in 2D
+        let repeatedShapesCanvas = document.querySelector('#repeated-shapes');
+        let repeatedShapesContext = repeatedShapesCanvas.getContext('2d');
+
+        /**
+         * Create a grid of rectangles:
+         * 
+         * We can use loops and their indices to simultaneously
+         * create and relocate each rectangle with the help of
+         * a gap variable, to create a grid of rectangles.
+         */
+        repeatedShapesContext.lineWidth = 4;
+        for (let i = 0; i < 5; i++) {
+            for (let j = 0; j < 5; j++) {
+                let width = 60;
+                let height = 60;
+                let gap = 20;
+                let x = 100 + (width + gap) * i;
+                let y = 100 + (height + gap) * j;
+    
+                repeatedShapesContext.beginPath();
+                repeatedShapesContext.rect(x, y, width, height);
+                repeatedShapesContext.stroke();
+            }
+        }
     </script>
 </body>
 </html>
