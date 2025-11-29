@@ -2,6 +2,11 @@ const canvasSketch = require('canvas-sketch');
 
 const settings = {
   dimensions: [ 600, 600 ] // Creates a square canvas with dimensions 2048 x 2048 pixels
+  
+  // Templated dimensions and other configurations can also be done on the canvas
+  // dimensions: 'A4',
+  // pixelsPerInch: 300,
+  // orientation: 'landscape'
 };
 
 const sketch = () => {
