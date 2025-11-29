@@ -1,4 +1,5 @@
 const canvasSketch = require('canvas-sketch');
+const { degToRad } = require('./utils');
 
 const settings = {
   dimensions: [ 1080, 1080 ]
@@ -21,7 +22,7 @@ const sketch = () => {
 
     // Translate and rotate the context
     context.translate(x, y);
-    context.rotate(0.3);
+    context.rotate(degToRad(45));
 
     // Draw the rectangle on the rotated context 
     //(simliar to drawing on a rotated paper)
@@ -37,7 +38,7 @@ const sketch = () => {
      * instructions, the sketches from her onwards will remain unaffected
      * from the previous transformations
      */
-    
+
     // Translate the context to a new position
     context.translate(100, 400);
 
