@@ -42,6 +42,16 @@
         context.beginPath();
         context.rect(100, 100, 400, 400);
         context.stroke();
+
+        /**
+         * Create a outlined circle:
+         * 
+         * We can use a full 360 degrees/2 pie arc to create a circle.
+         * And then apply stroke to it to have our desired output.
+         */
+        context.beginPath();
+        context.arc(300, 300, 100, 0, Math.PI * 2);
+        context.stroke();
     </script>
 </body>
 </html>
