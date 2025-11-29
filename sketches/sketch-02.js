@@ -46,6 +46,7 @@ const sketch = () => {
       x = cx + Math.sin(angle) * radius;
       y = cy + Math.cos(angle) * radius;
 
+      // CLOCK HANDLES:
       // Save context to being a set of dedicated transformations
       context.save();
       
@@ -60,6 +61,26 @@ const sketch = () => {
       context.rect(-handWidth * 0.5, -handHeight * 0.5, handWidth, handHeight);
       context.fill();
   
+      // Restore the context to its original state
+      context.restore();
+
+      // CLOCK ARCS:
+      // Save context to being a set of dedicated transformations
+      context.save();
+
+      // Translate and rotate the context
+      context.translate(cx, cy);
+      context.rotate(-angle);
+
+      // Set the line width
+      context.lineWidth = 20;
+
+      // Draw the arc on the rotated context from a fraction of 
+      // the negative slice to the positive slice
+      context.beginPath();
+      context.arc(0, 0, radius, slice * -0.3, slice * 0.3);
+      context.stroke();
+
       // Restore the context to its original state
       context.restore();
     }
