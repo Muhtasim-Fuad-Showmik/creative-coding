@@ -25,6 +25,23 @@
          */
         context.fillStyle = 'blue';
         context.fillRect(100, 100, 400, 400);
+
+        /**
+         * Create a outlined rectangle:
+         * 
+         * While the previous method was a shortcut for a recipe of
+         * creating a blue filled rectange in particular, we can use
+         * "rect" instead to clearly define and structure a more
+         * customized rectangle.
+         * 
+         * Define the line width, begin drawing the path, draw a
+         * rectangle just like before and only apply a stroke of
+         * line width 4 as defined earlier.
+         */ 
+        context.lineWidth = 4;
+        context.beginPath();
+        context.rect(100, 100, 400, 400);
+        context.stroke();
     </script>
 </body>
 </html>
