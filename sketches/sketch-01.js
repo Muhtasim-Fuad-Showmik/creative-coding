@@ -13,7 +13,6 @@ const sketch = () => {
   // Prepares a white background for our canvas
   return ({ context, width, height }) => {
     context.fillStyle = 'black';
-    context.strokeStyle = 'white';
     context.fillRect(0, 0, width, height);
     context.lineWidth = width * 0.01;
 
@@ -35,6 +34,9 @@ const sketch = () => {
 
           context.beginPath();
           context.rect(x, y, rectWidth, rectHeight);
+          const hue = Math.floor(Math.random() * 360); // Generate hue within 0 to 360
+          const lightness = Math.floor(Math.random() * 30) + 70; // Generate lightness within 70% to 100%
+          context.strokeStyle = `hsl(${hue}, 100%, ${lightness}%)`; // Generate random color
           context.stroke();
 
           // Randomize the drawing of inset rectangles
