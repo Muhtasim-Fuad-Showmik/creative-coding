@@ -53,7 +53,8 @@ const sketch = ({ context, width, height }) => {
     agents.forEach((agent) => {
       agent.update(); // update position of agent on each frame render
       agent.draw(context);
-      agent.bounce(width, height);
+      // agent.bounce(width, height);
+      agent.wrap(width, height);
     });
   };
 };
@@ -112,6 +113,20 @@ class Agent {
       this.position.y >= height - this.lineWidth
     )
       this.velocity.y *= -1;
+  }
+
+  /**
+   * Wraps the agent's position to the opposite side of the canvas when it
+   * goes out of bounds
+   *
+   * @param {int} width - width of the canvas
+   * @param {int} height - height of the canvas
+   */
+  wrap(width, height) {
+    if (this.position.x < 0) this.position.x = width;
+    if (this.position.x > width) this.position.x = 0;
+    if (this.position.y < 0) this.position.y = height;
+    if (this.position.y > height) this.position.y = 0;
   }
 
   // Updates the agent's position based on current velocity
