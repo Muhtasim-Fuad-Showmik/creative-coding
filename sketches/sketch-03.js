@@ -3,6 +3,7 @@ const random = require("canvas-sketch-util/random");
 
 const settings = {
   dimensions: [1080, 1080],
+  animate: true, // renders frames at 60 fps
 };
 
 const sketch = ({ context, width, height }) => {
@@ -22,6 +23,7 @@ const sketch = ({ context, width, height }) => {
 
     // Draw all stored agents
     agents.forEach((agent) => {
+      agent.update(); // update position of agent on each frame render
       agent.draw(context);
     });
   };
@@ -45,9 +47,17 @@ class Vector {
 class Agent {
   constructor(x, y) {
     this.position = new Vector(x, y);
+    this.velocity = new Vector(random.range(-1, 1), random.range(-1, 1));
     this.radius = random.range(4, 12);
   }
 
+  // Updates the agent's position based on current velocity
+  update() {
+    this.position.x += this.velocity.x;
+    this.position.y += this.velocity.y;
+  }
+
+  // Draws a stroked circle using the agent's position and radius
   draw(context) {
     context.save();
     context.translate(this.position.x, this.position.y);
