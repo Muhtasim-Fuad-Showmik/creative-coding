@@ -1,5 +1,6 @@
 const canvasSketch = require("canvas-sketch");
 const random = require("canvas-sketch-util/random");
+const math = require("canvas-sketch-util/math");
 
 const settings = {
   dimensions: [1080, 1080],
@@ -32,6 +33,9 @@ const sketch = ({ context, width, height }) => {
         // 200 pixels apart
         const distance = agent.position.getDistance(otherAgent.position);
         if (distance > 200) continue;
+
+        // Map the line width based on the distance between the agents
+        context.lineWidth = math.mapRange(distance, 0, 200, 12, 1);
 
         context.beginPath();
         context.moveTo(agent.position.x, agent.position.y);
