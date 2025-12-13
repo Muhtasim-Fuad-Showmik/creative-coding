@@ -21,12 +21,17 @@ const sketch = ({ context, width, height }) => {
     context.fillStyle = "white";
     context.fillRect(0, 0, width, height);
 
-    // Draw lines between every pair of agents
+    // Draw lines between every pair of agents that are close to each other
     for (let i = 0; i < agents.length; i++) {
       const agent = agents[i];
 
       for (let j = i + 1; j < agents.length; j++) {
         const otherAgent = agents[j];
+
+        // Avoid drawing lines between pairs of points that are more than
+        // 200 pixels apart
+        const distance = agent.position.getDistance(otherAgent.position);
+        if (distance > 200) continue;
 
         context.beginPath();
         context.moveTo(agent.position.x, agent.position.y);
@@ -51,6 +56,19 @@ class Vector {
   constructor(x, y) {
     this.x = x;
     this.y = y;
+  }
+
+  /**
+   * Uses Pythagoras theorem to calculate distance between a provided vector
+   * and current vector
+   *
+   * @param {Vector} v
+   * @returns distance between v and current vector
+   */
+  getDistance(v) {
+    const dx = this.x - v.x;
+    const dy = this.y - v.y;
+    return Math.sqrt(dx * dx + dy * dy);
   }
 }
 
