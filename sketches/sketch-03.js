@@ -48,6 +48,7 @@ class Agent {
   constructor(x, y) {
     this.position = new Vector(x, y);
     this.velocity = new Vector(random.range(-1, 1), random.range(-1, 1));
+    this.lineWidth = 4;
     this.radius = random.range(4, 12);
   }
 
@@ -62,7 +63,7 @@ class Agent {
     context.save();
     context.translate(this.position.x, this.position.y);
 
-    context.lineWidth = 4;
+    context.lineWidth = this.lineWidth;
 
     context.beginPath();
     context.arc(0, 0, this.radius, 0, Math.PI * 2);
