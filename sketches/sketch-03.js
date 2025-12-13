@@ -30,7 +30,7 @@ const sketch = ({ context, width, height }) => {
 canvasSketch(sketch, settings);
 
 // Represents positional coordinates
-class Point {
+class Vector {
   constructor(x, y) {
     this.x = x;
     this.y = y;
@@ -44,7 +44,7 @@ class Point {
  */
 class Agent {
   constructor(x, y) {
-    this.position = new Point(x, y);
+    this.position = new Vector(x, y);
     this.radius = random.range(4, 12);
   }
 
