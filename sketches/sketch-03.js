@@ -21,6 +21,20 @@ const sketch = ({ context, width, height }) => {
     context.fillStyle = "white";
     context.fillRect(0, 0, width, height);
 
+    // Draw lines between every pair of agents
+    for (let i = 0; i < agents.length; i++) {
+      const agent = agents[i];
+
+      for (let j = i + 1; j < agents.length; j++) {
+        const otherAgent = agents[j];
+
+        context.beginPath();
+        context.moveTo(agent.position.x, agent.position.y);
+        context.lineTo(otherAgent.position.x, otherAgent.position.y);
+        context.stroke();
+      }
+    }
+
     // Draw all stored agents
     agents.forEach((agent) => {
       agent.update(); // update position of agent on each frame render
