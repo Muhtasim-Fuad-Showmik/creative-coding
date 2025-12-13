@@ -25,6 +25,7 @@ const sketch = ({ context, width, height }) => {
     agents.forEach((agent) => {
       agent.update(); // update position of agent on each frame render
       agent.draw(context);
+      agent.bounce(width, height);
     });
   };
 };
@@ -50,6 +51,26 @@ class Agent {
     this.velocity = new Vector(random.range(-1, 1), random.range(-1, 1));
     this.lineWidth = 4;
     this.radius = random.range(4, 12);
+  }
+
+  /**
+   * Toggles direction of velocity when agent hits the canvas edges
+   * keeping the line width under consideration
+   *
+   * @param {int} width - width of the canvas
+   * @param {int} height - height of the canvas
+   */
+  bounce(width, height) {
+    if (
+      this.position.x <= this.lineWidth ||
+      this.position.x >= width - this.lineWidth
+    )
+      this.velocity.x *= -1;
+    if (
+      this.position.y <= this.lineWidth ||
+      this.position.y >= height - this.lineWidth
+    )
+      this.velocity.y *= -1;
   }
 
   // Updates the agent's position based on current velocity
