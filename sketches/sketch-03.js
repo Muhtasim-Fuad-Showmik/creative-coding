@@ -1,3 +1,8 @@
+// Run the sketch using the following command to export stream in video format
+// canvas-sketch sketch-03.js --output=output/03 --stream
+//
+// ! Make sure you have ffmpeg-installer/ffmpeg installed locally first
+
 const canvasSketch = require("canvas-sketch");
 const random = require("canvas-sketch-util/random");
 const math = require("canvas-sketch-util/math");
