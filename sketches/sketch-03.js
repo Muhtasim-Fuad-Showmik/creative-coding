@@ -38,13 +38,14 @@ class Point {
 }
 
 /**
- * Preserves coordinates and defaults radius to 10 and then
- * draws the dot on the canvas at the predefined position
+ * Preserves coordinates and prepares radius randomly within
+ * the range of 4 and 12 and then draws the dot on the canvas
+ * at the predefined position
  */
 class Agent {
   constructor(x, y) {
     this.position = new Point(x, y);
-    this.radius = 10;
+    this.radius = random.range(4, 12);
   }
 
   draw(context) {
