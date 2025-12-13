@@ -1,21 +1,29 @@
 const canvasSketch = require("canvas-sketch");
+const random = require("canvas-sketch-util/random");
 
 const settings = {
   dimensions: [1080, 1080],
 };
 
-const sketch = () => {
+const sketch = ({ context, width, height }) => {
+  // Create an array of random agents to be drawn on the canvas
+  const agents = [];
+
+  for (let i = 0; i < 40; i++) {
+    const x = random.range(0, width);
+    const y = random.range(0, height);
+
+    agents.push(new Agent(x, y));
+  }
+
   return ({ context, width, height }) => {
     context.fillStyle = "white";
     context.fillRect(0, 0, width, height);
 
-    // Create instances of agents using only coordinates
-    const agentA = new Agent(800, 400);
-    const pointB = new Agent(300, 700);
-
-    // Use draw method from agent to draw the dots
-    agentA.draw(context);
-    pointB.draw(context);
+    // Draw all stored agents
+    agents.forEach((agent) => {
+      agent.draw(context);
+    });
   };
 };
 
